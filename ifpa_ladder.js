@@ -4,7 +4,6 @@ var request = require('request');
 var cheerio = require('cheerio');
 var fs = require('fs');
 var exec = require('child_process').exec;
-var spawn = require('child_process').spawn;
 var program = require('commander');
 
 program
@@ -38,11 +37,11 @@ function load() {
 
         if (program.debug)
             console.log('Writing to file...');
-        fs.writeFileSync('data\\rankings.txt', file_data);
+        fs.writeFileSync('data/rankings.txt', file_data);
 
         exec('git commit -a -m "changes"', { cwd: './data' }, (err, stdout, stderr) => {
             if (stdout.indexOf('nothing to commit') != -1) {
-                if (program.debug) {
+                if (program.testing) {
                     console.log(stdout);
                     console.log('No changes in the Top 100');
                 }
@@ -53,7 +52,6 @@ function load() {
                 if (program.debug) {
                     console.log(stdout);
                     console.log('There is change in top 100!');
-
                 }
                 show_changes_if_any();
             }
