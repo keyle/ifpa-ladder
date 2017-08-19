@@ -1,0 +1,61 @@
+- Run index.js once
+- commit the changes in /data
+- run the show.bat to show the diff.
+
+Ideally the process runs once a day and updates the rankings.txt
+then if there is changes,
+	commit the changes,
+	create an alert
+	show the changes
+
+
+-------------------------------
+
+e.g.
+
+-14th   Andrew Ferguson
+-15th   Grant Stephens
++14th   Grant Stephens
++15th   Andrew Ferguson
+
+Grant Stephens is now 14th (+1)
+Andrew Ferguson is now 15th (-1)
+
+look up lines that start with -\d and +\d
+match on the name object[player_name].was and .is
+store the 14 and 15
+if is > was, then the player went up.
+
+Ideally a node file gets polled and looks up the last results. For annoucement a file should probably be touched/deleted.
+
+------------------------------
+
+stdout: commit fd971e86f3da7b521dd8c6ace910b52b87fcefb9
+Author: keyle <keyle@capsule.org>
+Date:   Sat Aug 19 11:00:27 2017 +1000
+
+    manual changes
+
+diff --git a/rankings.txt b/rankings.txt
+index 1df830a..b624384 100644
+--- a/rankings.txt
++++ b/rankings.txt
+@@ -18,2 +18,2 @@ rank|Johnny Crabtree|17
+-rank|Corey Hamilton|18
+-rank|Rob Singh|19
++rank|Rob Singh|18
++rank|Corey Hamilton|19
+
+[master e4e4aa4] changes
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+There is change in top 100!
+
+------------------------------
+
+Slack bot link formatting: <http://url|pretty name>
+
+
+
+
+

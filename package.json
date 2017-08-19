@@ -1,0 +1,16 @@
+{
+  "name": "ifpa_ladder",
+  "version": "1.0.0",
+  "description": "Gathers the changes in the top 100 of a IFPA country's ladder. Output is formatted to be printed in a Slack bot.",
+  "main": "ifpa_ladder.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nicolas Noben",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.11.0",
+    "request": "^2.81.0"
+  }
+}
